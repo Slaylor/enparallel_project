@@ -1,0 +1,7 @@
+.card-1 {
+    background: linear-gradient(rgba(0,0,255,.2),rgba(255,255,0,.2)),50%/cover no-repeat url(../../assets/image3.jpg);
+}
+
+.card-2 {
+    background: linear-gradient(rgba(0,0,0,.8),rgba(0,0,0,.8)),50%/cover no-repeat url(../../assets/image8.jpg);
+}

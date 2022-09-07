@@ -5,14 +5,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { HomePageComponent } from './home-page/home-page.component';
-import { IndexShowPlanetsComponent } from './index-show-planets/index-show-planets.component';
+import { KitUiComponent } from './kit-ui/kit-ui.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     HomePageComponent,
-    IndexShowPlanetsComponent
+    KitUiComponent
   ],
   imports: [
     BrowserModule,
