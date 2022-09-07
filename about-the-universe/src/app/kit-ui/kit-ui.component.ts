@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {HttpClient} from "@angular/common/http";
 
 @Component({
   selector: 'app-kit-ui',
@@ -6,10 +7,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./kit-ui.component.css']
 })
 export class KitUiComponent implements OnInit {
+  nbPlanets: number = 0;
 
-  constructor() { }
-
-  ngOnInit(): void {
+  constructor(private httpService:HttpClient) {
   }
 
+  ngOnInit(): void {
+    this.getNbPlanets();
+  }
+  getNbPlanets() {
+    this.httpService
+      .get('https://swapi.dev/api/planets')
+      .subscribe(data => {
+        console.log(data['count']);
+      })
+
+  }
 }
