@@ -1,8 +1,17 @@
-import { PeopleDetails } from "./people-details";
+import { Vehicle } from "./vehicle";
+import { Starship } from "./starship";
 
 export interface People {
-    count: number;
-    next: string;
-    previous: string;
-    results: PeopleDetails[];
+    name: string;
+    height: string;
+    mass: string;
+    hair_color: string;
+    skin_color: string;
+    eye_color: string;
+    birth_year: string;
+    gender: string;
+    homeworld: string;
+    vehicles: Vehicle[];
+    starships: Starship[];
+    url: string;
 }

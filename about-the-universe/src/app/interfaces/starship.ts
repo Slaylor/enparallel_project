@@ -1,8 +1,19 @@
-import { StarshipDetails } from "./starship-details";
+import { People } from "./people";
 
 export interface Starship {
-    count: number;
-    next: string;
-    previous: string;
-    results: StarshipDetails[];
+    name: string;
+    model: string;
+    manufacturer: string;
+    cost_in_credits: number;
+    length: number;
+    max_atmosphering_speed: string;
+    crew: number;
+    passengers: number;
+    cargo_capicity: number;
+    consumables: string;
+    hyperdrive_rating: number;
+    MGLT: number;
+    starship_class: string;
+    pilots: People[];
+    url: string;
 }

@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 
-import { PlanetDetails } from '../interfaces/planet-details';
-import { PeopleDetails } from '../interfaces/people-details';
-import { StarshipDetails } from '../interfaces/starship-details';
-
 import { Planet } from '../interfaces/planet';
 import { People } from '../interfaces/people';
 import { Starship } from '../interfaces/starship';
+
+import { PlanetDetails } from '../interfaces/planet-details';
+import { PeopleDetails } from '../interfaces/people-details';
+import { StarshipDetails } from '../interfaces/starship-details';
 
 @Component({
   selector: 'app-home-page',
@@ -16,9 +16,9 @@ import { Starship } from '../interfaces/starship';
 })
 export class HomePageComponent implements OnInit {
 
-  planets: PlanetDetails[] = [];
-  people: PeopleDetails[] = [];
-  starships: StarshipDetails[] = [];
+  planets: Planet[] = [];
+  people: People[] = [];
+  starships: Starship[] = [];
 
   planetsCount!: number;
   peopleCount!: number;
@@ -35,7 +35,7 @@ export class HomePageComponent implements OnInit {
 
   getPlanets() {
     this.httpService
-      .get<Planet>('https://swapi.dev/api/planets')
+      .get<PlanetDetails>('https://swapi.dev/api/planets')
       .subscribe(data => {
         this.planets = data.results;
         this.planetsCount = data.count;
@@ -44,7 +44,7 @@ export class HomePageComponent implements OnInit {
 
   getPeople() {
     this.httpService
-      .get<People>('https://swapi.dev/api/people')
+      .get<PeopleDetails>('https://swapi.dev/api/people')
       .subscribe(data => {
         this.people = data.results;
         this.peopleCount = data.count;
@@ -53,7 +53,7 @@ export class HomePageComponent implements OnInit {
 
   getStarships() {
     this.httpService
-      .get<Starship>('https://swapi.dev/api/starships')
+      .get<StarshipDetails>('https://swapi.dev/api/starships')
       .subscribe(data => {
         this.starships = data.results;
         this.starshipsCount = data.count;
