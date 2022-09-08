@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 
+import { Planet } from 'src/interfaces/planet';
+import { People } from 'src/interfaces/people';
+import { Starship } from 'src/interfaces/starship';
+
 @Component({
   selector: 'app-home-page',
   templateUrl: './home-page.component.html',
@@ -8,9 +12,9 @@ import {HttpClient} from "@angular/common/http";
 })
 export class HomePageComponent implements OnInit {
 
-  Planets: any = [];
-  People: any = [];
-  Starships: any = [];
+  Planets: Planet[] = [];
+  People: People[] = [];
+  Starships: Starship[] = [];
 
   constructor(private httpService:HttpClient) {
   }
@@ -24,7 +28,7 @@ export class HomePageComponent implements OnInit {
   getPlanets() {
     this.httpService
       .get('https://swapi.dev/api/planets')
-      .subscribe(data => {
+      .subscribe((data: any) => {
         this.Planets = data;
       })
   }
@@ -32,7 +36,7 @@ export class HomePageComponent implements OnInit {
   getPeople() {
     this.httpService
       .get('https://swapi.dev/api/people')
-      .subscribe(data => {
+      .subscribe((data: any) => {
         this.People = data;
       })
   }
@@ -40,7 +44,7 @@ export class HomePageComponent implements OnInit {
   getStarships() {
     this.httpService
       .get('https://swapi.dev/api/starships')
-      .subscribe(data => {
+      .subscribe((data: any) => {
         this.Starships = data;
       })
   }
