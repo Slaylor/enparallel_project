@@ -1,9 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 
-import { Planet } from 'src/interfaces/planet';
-import { People } from 'src/interfaces/people';
-import { Starship } from 'src/interfaces/starship';
+import { PlanetDetails } from '../interfaces/planet-details';
+import { PeopleDetails } from '../interfaces/people-details';
+import { StarshipDetails } from '../interfaces/starship-details';
+
+import { Planet } from '../interfaces/planet';
+import { People } from '../interfaces/people';
+import { Starship } from '../interfaces/starship';
 
 @Component({
   selector: 'app-home-page',
@@ -12,9 +16,13 @@ import { Starship } from 'src/interfaces/starship';
 })
 export class HomePageComponent implements OnInit {
 
-  Planets: Planet[] = [];
-  People: People[] = [];
-  Starships: Starship[] = [];
+  planets: PlanetDetails[] = [];
+  people: PeopleDetails[] = [];
+  starships: StarshipDetails[] = [];
+
+  planetsCount!: number;
+  peopleCount!: number;
+  starshipsCount!: number;
 
   constructor(private httpService:HttpClient) {
   }
@@ -27,25 +35,28 @@ export class HomePageComponent implements OnInit {
 
   getPlanets() {
     this.httpService
-      .get('https://swapi.dev/api/planets')
-      .subscribe((data: any) => {
-        this.Planets = data;
+      .get<Planet>('https://swapi.dev/api/planets')
+      .subscribe(data => {
+        this.planets = data.results;
+        this.planetsCount = data.count;
       })
   }
 
   getPeople() {
     this.httpService
-      .get('https://swapi.dev/api/people')
-      .subscribe((data: any) => {
-        this.People = data;
+      .get<People>('https://swapi.dev/api/people')
+      .subscribe(data => {
+        this.people = data.results;
+        this.peopleCount = data.count;
       })
   }
 
   getStarships() {
     this.httpService
-      .get('https://swapi.dev/api/starships')
-      .subscribe((data: any) => {
-        this.Starships = data;
+      .get<Starship>('https://swapi.dev/api/starships')
+      .subscribe(data => {
+        this.starships = data.results;
+        this.starshipsCount = data.count;
       })
   }
 }
