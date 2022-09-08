@@ -2,14 +2,14 @@ import { PeopleDetails } from "./people-details";
 
 export interface PlanetDetails {
     climate: string;
-    diameter: number;
+    diameter: string;
     gravity: string;
     name: string;
-    orbital_period: number;
-    population: number;
+    orbital_period: string;
+    population: string;
     residents: PeopleDetails[];
-    rotation_period: number;
-    surface_water: number;
+    rotation_period: string;
+    surface_water: string;
     terrain: string;
     url: string;
 }
