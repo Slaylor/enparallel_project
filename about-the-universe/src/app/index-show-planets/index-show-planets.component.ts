@@ -15,6 +15,7 @@ export class IndexShowPlanetsComponent implements OnInit {
 
   planets: Planet[] = [];
   planetsCount!: number;
+  selectedPlanet: any = null;
 
   constructor(private httpService:HttpClient) { }
 
@@ -31,8 +32,8 @@ export class IndexShowPlanetsComponent implements OnInit {
       })
   }
 
-  showPlanet(planet: Planet) {
-    
+  showPlanet($event: any) {
+    this.selectedPlanet = $event
   }
 
 }

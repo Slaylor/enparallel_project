@@ -9,6 +9,7 @@ import { KitUiComponent } from './kit-ui/kit-ui.component';
 import {HttpClientModule} from "@angular/common/http";
 import { IndexShowPlanetsComponent } from './index-show-planets/index-show-planets.component';
 import { FormsModule } from '@angular/forms';
+import { IndexPlanetsComponent } from './index-planets/index-planets.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { FormsModule } from '@angular/forms';
     NavbarComponent,
     HomePageComponent,
     KitUiComponent,
-    IndexShowPlanetsComponent
+    IndexShowPlanetsComponent,
+    IndexPlanetsComponent
   ],
   imports: [
     BrowserModule,
