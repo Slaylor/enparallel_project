@@ -8,6 +8,7 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { KitUiComponent } from './kit-ui/kit-ui.component';
 import {HttpClientModule} from "@angular/common/http";
 import { IndexShowPlanetsComponent } from './index-show-planets/index-show-planets.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { IndexShowPlanetsComponent } from './index-show-planets/index-show-plane
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

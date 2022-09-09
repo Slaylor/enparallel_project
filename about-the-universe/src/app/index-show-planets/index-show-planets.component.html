@@ -14,9 +14,42 @@
                 </select>
             </div>
 
-            <div class="form-group">
-                
+            <div class="form-group form-group-search">
+                <input type="text" class="form-control searchbar" id="searchbar" [(ngModel)]="query" placeholder="Faites votre recherche" >
+                <span class="fas fa-search icon"></span>
             </div>
+        </div>
+
+        <div class="table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nom</th>
+                        <th>Terrain</th>
+                    </tr>
+                </thead>
+
+                <tbody (click)="showPlanet(planet)" *ngFor="let planet of planets">
+                    <tr>
+                        <td>{{ planet.name }}</td>     
+                        <td>{{ planet.terrain }}</td>              
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="card-footer">
+            <div class="medium-information mt-5">
+                <span class="info">
+                    {{ planetsCount }} résultat(s)
+                </span>
+            </div>            
+        </div>
+    </div>
+
+    <div>
+        <div class="card info text-secondary">
+            Sélectionner le contenu à afficher !
         </div>
     </div>
 </main>
